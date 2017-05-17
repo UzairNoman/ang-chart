@@ -11,14 +11,18 @@
 <body>
     <div class="container" ng-controller="ChartController as chartCtrl">
         <div class="row">
-            <input placeholder="Write" ng-model="chart.title" />
+            <input placeholder="Write" ng-model="chartCtrl.title" />
             <a ng-click="show(chart)" class="waves-effect waves-light btn">button</a>
+            <p>{{ myWelcome }}</p>
         </div>
-        <canvas data-sys-chart-line
-            data-dataset="chartCtrl.data"
-            width="400"
-            height="240"></canvas>
-
+        <form id        =  "uploadForm"
+    enctype   =  "multipart/form-data"
+    action    =  "csv"
+    method    =  "post"
+>
+<input type="file" name="myfile" />Upload
+<input type="submit" value="Upload" ng-click="show(chartCtrl,$event)" name="submit">
+</form>
             <canvas id="myChart" width="400" height="400"></canvas>
     </div>
 
@@ -61,6 +65,7 @@
         type: 'line',
         data: me
 });
+
     </script>
 </body>
 
