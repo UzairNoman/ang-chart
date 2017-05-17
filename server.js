@@ -13,14 +13,6 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
-// router.post('/csv1',function(req,res){
-//     console.log("hey");
-//     res.json({ 
-//         bitch : 'heuyasd'
-
-//     });
-// });
-
 router.post('/csv',upload.single('myfile'),function(req,res){
     var file  = req.file;
 
@@ -37,21 +29,8 @@ router.post('/csv',upload.single('myfile'),function(req,res){
     rs.pipe(parser);
 });
 
-router.get('/hello',function(req,res){
-    res.json({
-        uzair : "fine"
-    });
-});
 
 app.use(express.static(__dirname + '/public'));
 
-router.post('/new',function(req,res){
-    rs = fs.createReadStream(__dirname+'/public/uploads/data-1.csv');
-    parser = parse({columns: true}, function(err, data){
-    console.log(data);
-    })
-    rs.pipe(parser);
-
-});
 app.use('/', router);
 app.listen(3000);
