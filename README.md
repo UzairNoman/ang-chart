@@ -3,9 +3,9 @@
 this is a backend application made on NodeJs
 
 ## Steps
-
-* npm install
+* clone ang-chart for backend https://github.com/UzairNoman/ang-chart.git
 * cd ang-chart
+* npm install
 * npm install -g nodemon
 * nodemon server.js (port will default be 3000)
 * clone the repo https://github.com/UzairNoman/ang-chart-fend.git (Front-end)
